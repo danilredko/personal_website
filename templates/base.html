@@ -1,0 +1,124 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Personal Website {% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+</head>
+<style>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Montserrat:400,700');
+
+body{
+
+font-family: Montserrat,helvetica neue,Helvetica,Arial,sans-serif;
+font-size: 40px;
+}
+
+.icon {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  top: 6px;
+  margin-right: 20px;
+  fill: #fff;
+}
+
+.icon_git {
+  width: 5px;
+  left: 2px;
+  position: relative;
+  top: 15px;
+  margin-right: 20px;
+  fill: #fff;
+}
+
+#email_link{
+  color: black;
+}
+</style>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'main_page' %}" style="font-size: 30px; font-family: Montserrat,helvetica neue,Helvetica,Arial,sans-serif;font-weight: 900;">Danil Redko</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" style="font-size: 20px;">Projects<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" style="font-size: 20px;">Resume</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+{% block content %}
+
+<div class="card text-center">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <h1 class="card-title">Danil Redko</h1>
+     <img src="../static/images/empty-face.gif"  class="rounded-circle mx-auto d-block">
+    <h3 class="card-text">Recent UofT graduate</h3>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row ">
+
+    <div class="col-lg-9 ">
+
+      <h3>About Me</h3>
+      <h4>I am a recent UofT graduate. I have a major in Computer Science and Statistics, and minor in Mathematics. I'm passionate about Data Science, Machine Learning and Computer Vision. Feel free to check out my <a href="#">projects </a>
+      . I'm looking forward to work in an interesting company and see how data rules the world.
+
+      </h4>
+
+    </div>
+
+    <div class="col-lg-3" >
+
+      <h3>Contact</h3>
+      <div class="container">
+        <div class="row">
+          <a id='email_link' href="mailto:danil.redko@mail.utoronto.ca">
+          <i class="material-icons icon">email</i>Email</a>
+        </div>
+
+        <div class="row">
+          <a id='email_link' href="https://github.com/danilredko" >
+            <i class="fab fa-github fa-lg icon_git" ></i><span class="icon_git">Github</span></a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+
+</html>
