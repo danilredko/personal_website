@@ -9,7 +9,6 @@ def list_projects(request):
 
     return render(request, 'projects.html')
 
-
 def show_project(request, project_name):
 
     return render(request, project_name+'.html')
