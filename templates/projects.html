@@ -4,41 +4,99 @@
 {% block title %} Projects {% endblock %}
 
 {% block content %}
-<div class="card-group">
-  <div class="card">
-      <a href="{% url 'project' 'k_means' %}" class="links">
-      <img src="../static/images/k_means.png" class="card-img-top" style="height:30%, width:20%">
-      <div class="card-body">
-        <h5 class="card-title">Hierarchical K Means Visualization</h5>
-        <p class="card-text">K Means algorithm is used on clusters recursively to create more sub-clusters. This projects uses 2d data for Visualization, however this technique can be used for 3d, 4d, etc. </p>
-        <p class="card-text"><small class="text-muted">Machine Learning</small></p>
-    </div>
-    </a>
-  </div>
 
-      <div class="card">
-          <a href="{% url 'project' 'affine_transformation' %}" class="links">
+<div class="containter">
 
-            <img src="../static/images/affine_transform_img.png" class="card-img-top" style="height:30%, width:20%;">
-            <div class="card-body">
-              <h5 class="card-title">Affine Transformation</h5>
-              <p class="card-text">Affine Transformations are combinations of linear transformations and translations. In this type of transformation, parallel lines remain parallel and ratios are preserved. </p>
+      <div class="row">
+
+          <div class="card col-md-6 col-xl-4 ">
+              <a href="{% url 'project' 'k_means' %}" class="links">
+              <img src="../static/images/k_means.png" class="card-img-top" style="height:30%, width:20%">
+              <div class="card-body">
+                <h5 class="card-title">Hierarchical K Means Visualization</h5>
+                <p class="card-text">K Means algorithm is used on clusters recursively to create more sub-clusters. This projects uses 2d data for Visualization, however this technique can be used for 3d, 4d, etc. </p>
+                <p class="card-text"><small class="text-muted">Machine Learning</small></p>
+            </div>
+            </a>
+          </div>
+
+          <div class="card col-md-6 col-xl-4 ">
+              <a href="{% url 'project' 'affine_transformation' %}" class="links">
+
+                <img src="../static/images/affine_transform_img.png" class="card-img-top" style="height:30%, width:20%;">
+                <div class="card-body">
+                  <h5 class="card-title">Affine Transformation</h5>
+                  <p class="card-text">Affine Transformations are combinations of linear transformations and translations. In this type of transformation, parallel lines remain parallel and ratios are preserved. </p>
+                  <p class="card-text"><small class="text-muted">Computer Vision</small></p>
+                </div>
+              </a>
+          </div>
+
+          <div class="card col-md-6 col-xl-4 ">
+            <a href="{% url 'project' 'homography' %}" class="links">
+            <img src="../static/images/homography_image.png" class="card-img-top" style="height:30%, width:20%; padding-top:23%" >
+            <div class="card-body  ">
+              <h5 class="card-title">Homography Transformation</h5>
+              <p class="card-text "> In this type of transformation, parallel lines do not necessarily remain parallel and ratios are <strong>not</strong> preserved.</p>
+
               <p class="card-text"><small class="text-muted">Computer Vision</small></p>
             </div>
-          </a>
+            </a>
+          </div>
+
+          <div class="card col-md-6 col-xl-4 ">
+            <a href="{% url 'project' 'KernelLinearRegression' %}" class="links">
+            <img src="../static/images/kernel_img.png" class="card-img-top" style="height:30%, width:20%" >
+            <div class="card-body  ">
+              <h5 class="card-title">Kernel Linear Regression</h5>
+              <p class="card-text ">Fitting a function to data using linear least-squares regression and graphing interesting results. Explaining overfitting and underfitting for different terms. </p>
+
+              <p class="card-text"><small class="text-muted">Machine Learning</small></p>
+            </div>
+            </a>
+          </div>
+
+
+
+          <div class="card col-md-6 col-xl-4 ">
+              <a href="{% url 'project' 'RegularizationCrossValidationandGradientDescent' %}" class="links">
+              <img src="../static/images/k_fold.png" class="card-img-top" >
+              <div class="card-body  ">
+                <h5 class="card-title">Regularization, Cross Validation and Gradient Descent</h5>
+                <p class="card-text ">Fitting a function to data using regularized least-squares regression. Implementing K-fold cross validation and Gradient Descent by myself.</p>
+
+                <p class="card-text"><small class="text-muted">Machine Learning</small></p>
+              </div>
+              </a>
+          </div>
+
+          <div class="card col-md-6 col-xl-4 ">
+              <a href="{% url 'project' 'RegularizationCrossValidationandGradientDescent' %}" class="links">
+              <img src="../static/images/k_fold.png" class="card-img-top" >
+              <div class="card-body  ">
+                <h5 class="card-title">Regularization, Cross Validation and Gradient Descent</h5>
+                <p class="card-text ">Fitting a function to data using regularized least-squares regression. Implementing K-fold cross validation and Gradient Descent by myself.</p>
+
+                <p class="card-text"><small class="text-muted">Machine Learning</small></p>
+              </div>
+              </a>
+          </div>
+
+          <div class="card col-md-6 col-xl-4 ">
+              <a href="{% url 'project' 'RegularizationCrossValidationandGradientDescent' %}" class="links">
+              <img src="../static/images/k_fold.png" class="card-img-top" >
+              <div class="card-body  ">
+                <h5 class="card-title">Regularization, Cross Validation and Gradient Descent</h5>
+                <p class="card-text ">Fitting a function to data using regularized least-squares regression. Implementing K-fold cross validation and Gradient Descent by myself.</p>
+
+                <p class="card-text"><small class="text-muted">Machine Learning</small></p>
+              </div>
+              </a>
+          </div>
+
       </div>
 
-    <div class="card">
-      <a href="{% url 'project' 'homography' %}" class="links">
-      <img src="../static/images/homography_image.png" class="card-img-top" style="height:30%, width:20%; padding-top:23%" >
-      <div class="card-body  ">
-        <h5 class="card-title">Homography Transformation</h5>
-        <p class="card-text "> In this type of transformation, parallel lines do not necessarily remain parallel and ratios are <strong>not</strong> preserved.</p>
-
-        <p class="card-text"><small class="text-muted">Computer Vision</small></p>
-      </div>
-      </a>
-  </div>
 
 </div>
+
 {% endblock %}
