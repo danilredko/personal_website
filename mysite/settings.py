@@ -25,7 +25,7 @@ SECRET_KEY = '&b9g*k5qhix$=_(u9d2lpyd5o%&to#72wy29^((a4uqjjxw%tw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['redko.ca', '127.0.0.1']
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')

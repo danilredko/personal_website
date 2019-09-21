@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Homography {% endblock %}
+{% block title %} Regularization, Cross Validation {% endblock %}
 
 {% block content %}
 
@@ -141,7 +141,7 @@
         }
     });
     </script>
-<h1><center><br><strong>Regularization, Cross Validation and Gradient Descent</strong><br></h1>
+<h1><center><br><strong>Regularization, <a href="#cross_validation_link">Cross Validation</a>, and <a href="#gradient_descent_link">Gradient Descent</strong></center></a><br></h1>
 <br>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
@@ -411,7 +411,7 @@ where three sums are over training and test data, $N_{train}$, $N_{test}$ and $N
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><h4>The functions above are wiggly for small value of $\alpha$, and almost flat for large values of $\alpha$, and fits data well for intermediate values. Meaning, overfitting for small $\alpha$, and underfitting for large $\alpha$.</p>
-<p><br>Same concept is illustrated if we look at training and validation error: &lt;/h4&gt;<br></p>
+<p><br>Same concept is illustrated if we look at training and validation error: <br></p>
 
 </div>
 </div>
@@ -580,7 +580,7 @@ _______________________________________________________
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Cross-Validation">Cross Validation<a class="anchor-link" href="#Cross-Validation">&#182;</a></h3>
+<h1 id="cross_validation_link"><center><br><strong>Cross Validation</strong><br></h1>
 </div>
 </div>
 </div>
@@ -931,7 +931,7 @@ Mean Validation Error: 39.0355943886
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><br><h4>Gradient Descent</h4><br></p>
+<h1 id="gradient_descent_link"><center><br><strong>Gradient Descent</strong><br></h1>
 
 </div>
 </div>
