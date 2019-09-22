@@ -72,10 +72,10 @@
 
           <div class="card col-md-6 col-xl-4 ">
               <a href="{% url 'project' 'CondosDataPart1' %}" class="links">
-              <img src="../static/images/web_scraping.png" class="card-img-top" >
+              <img src="../static/images/web_scraping.png" class="card-img-top" style="padding-top: 30px; padding-bottom:105px">
               <div class="card-body  ">
                 <h5 class="card-title">Condos Data Part 1</h5>
-                <p class="card-text ">ross validation and Gradient Descent by myself.</p>
+                  <p class="card-text ">In this project, we will get data from <a href="https://condos.ca">condos.ca</a> website and store it into .csv file. This is done by using BeautifulSoup - python package for parsing HTML and XML documents. </p>
 
                 <p class="card-text"><small class="text-muted">Web Scraping</small></p>
               </div>
@@ -87,12 +87,25 @@
               <img src="../static/images/pandas.jpg" class="card-img-top" >
               <div class="card-body  ">
                 <h5 class="card-title">Condos Data Part 2</h5>
-                <p class="card-text ">Fitting a function to data using regularized least-squares regression. Implementing K-fold cross validation and Gradient Descent by myself.</p>
+                  <p class="card-text ">In this projects, we will use the data we got in <a href="{% url 'project' 'CondosDataPart1' %}"><strong>Condos Data Part 1 </strong></a>. We will use clean and structure the data such that it can be used to visualize the data as well as apply machine learning models. </p>
 
                 <p class="card-text"><small class="text-muted">Data visualization</small></p>
               </div>
               </a>
           </div>
+
+          <div class="card col-md-6 col-xl-4 ">
+              <a href="{% url 'project' 'computer_shop' %}" class="links">
+              <img src="../static/images/computer_store.png" class="card-img-top" style="padding-bottom: 100px" >
+              <div class="card-body  ">
+                <h5 class="card-title">Online Store</h5>
+                  <p class="card-text "> Online Computer Store where registered users can choose the parts they want and add them to the cart. The store keeps track of previous orders of each customer.  </p>
+
+                <p class="card-text"><small class="text-muted">Web Development</small></p>
+              </div>
+              </a>
+          </div>
+
 
       </div>
 
