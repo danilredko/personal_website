@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Resume {% endblock %}
+
+{% block content %}
+<br>
+<h1><center>Click below to view my resume:</center> </h1>
+<br>
+<center><h1><a href="{% static 'documents/DanilRedkoResume.pdf' %}">Resume</a></h1></center>
+
+{% endblock %}
