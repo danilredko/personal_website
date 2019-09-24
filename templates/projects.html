@@ -20,6 +20,18 @@
             </a>
           </div>
 
+          <div class="col-md-6 col-xl-4">
+            <a href="{% url 'project' 'nlp_russian' %}" class="links">
+              <img src="../static/images/nlp_russian.png" class="card-img-top" style="padding-bottom: 125px; padding-top:170px;"  >
+              <div class="card-body  ">
+                <h5 class="card-title">NLP Russian Language</h5>
+                <p class="card-text ">Using library pymorphy2 which for designed for Russian and Ukraine Languages to get features of the words. Explaining basic differences between English and Russian Languages. </p>
+
+                <p class="card-text"><small class="text-muted">NLP</small></p>
+              </div>
+              </a>
+          </div>
+
           <div class="card col-md-6 col-xl-4 ">
               <a href="{% url 'project' 'affine_transformation' %}" class="links">
 
@@ -75,9 +87,9 @@
               <img src="../static/images/web_scraping.png" class="card-img-top" style="padding-top: 30px; padding-bottom:105px">
               <div class="card-body  ">
                 <h5 class="card-title">Condos Data Part 1</h5>
-                  <p class="card-text ">In this project, we will get data from <a href="https://condos.ca">condos.ca</a> website and store it into .csv file. This is done by using BeautifulSoup - python package for parsing HTML and XML documents. </p>
+                  <p class="card-text ">In this project, we will get data from <a href="https://condos.ca">condos.ca</a><a href="{% url 'project' 'CondosDataPart1' %}" class="links"> website and store it into .csv file. This is done by using BeautifulSoup - python package for parsing HTML and XML documents. </p>
 
-                <p class="card-text"><small class="text-muted">Web Scraping</small></p>
+                  <p class="card-text"><small class="text-muted">Web Scraping</small></p></a>
               </div>
               </a>
           </div>
@@ -87,7 +99,7 @@
               <img src="../static/images/pandas.jpg" class="card-img-top" >
               <div class="card-body  ">
                 <h5 class="card-title">Condos Data Part 2</h5>
-                  <p class="card-text ">In this projects, we will use the data we got in <a href="{% url 'project' 'CondosDataPart1' %}"><strong>Condos Data Part 1 </strong></a>. We will use clean and structure the data such that it can be used to visualize the data as well as apply machine learning models. </p>
+                  <p class="card-text ">In this projects, we will use the data we got in </a><a href="{% url 'project' 'CondosDataPart1' %}"><strong>Condos Data Part 1 </strong></a>.<a href="{% url 'project' 'CondosDataPart2' %}" class="links"> We will use clean and structure the data such that it can be used to visualize the data as well as apply machine learning models. </p>
 
                 <p class="card-text"><small class="text-muted">Data visualization</small></p>
               </div>
@@ -106,15 +118,16 @@
               </a>
           </div>
 
+
           <div class="col-md-6 col-xl-4">
               <br>
               <h1>More projects soon...</h1>
-
+              <br>
           </div>
 
-      </div>
-
-
+        </div>
 </div>
+
+
 
 {% endblock %}

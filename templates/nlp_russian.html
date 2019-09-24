@@ -1,0 +1,1088 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} NLP Russian {% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+    .highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+    </style>
+
+
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+    <h1><center><br><strong>NLP with Russian Language</strong><br></h1>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><h4>I've done research about Natural Language Processing for russian language, and I found a library called pymorph2. </h4><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="k">import</span> <span class="n">word_tokenize</span><span class="p">,</span> <span class="n">WordPunctTokenizer</span>
+<span class="kn">from</span> <span class="nn">nltk.tag</span> <span class="k">import</span> <span class="n">pos_tag</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rus_text</span> <span class="o">=</span> <span class="s2">&quot;Его зовут Д.А. Редько! А как зовут вас? &quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">rus_text</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;Его зовут Д.А.&#39;, &#39;Редько!&#39;, &#39;А как зовут вас?&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><h4>There is this different if we set language to russian, because in russian language 'Д.А.' is just a short way of writing full names, which is not a new sentence. <br></h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">rus_text</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;russian&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;Его зовут Д.А. Редько!&#39;, &#39;А как зовут вас?&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pymorphy2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><h4>Morphological analysis is the determination of the characteristics of a word based on how the word is spelled. Morphological analysis does not use information about neighboring words.<br></h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">morph</span> <span class="o">=</span> <span class="n">pymorphy2</span><span class="o">.</span><span class="n">MorphAnalyzer</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><h4>Here: I use a verb 'run'(past, present, future tense) as a word to demontrate how the parsing works. I use dictionaty of the form {'english': 'russian'}<br></h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;will_run&#39;</span><span class="p">:</span> <span class="s1">&#39;побегу&#39;</span><span class="p">,</span> <span class="s1">&#39;run&#39;</span><span class="p">:</span><span class="s1">&#39;бегаю&#39;</span><span class="p">,</span> <span class="s1">&#39;running&#39;</span><span class="p">:</span> <span class="s1">&#39;бегу&#39;</span><span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">run_english</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">run</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">run_russian</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">run</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">run_english</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;will_run&#39;, &#39;run&#39;, &#39;running&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">run_russian</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;побегу&#39;, &#39;бегаю&#39;, &#39;бегу&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><h4>Let's get some data about the words, for example, whether it is a noun or a verb. single or plural, normal form  etc.<br></h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">eng_run_word</span><span class="p">,</span> <span class="n">rus_run_word</span> <span class="ow">in</span> <span class="n">run</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;______________________________________________________________&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;forms of ENG: </span><span class="si">{}</span><span class="s1">, RUS: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">eng_run_word</span><span class="p">,</span> <span class="n">rus_run_word</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">form</span> <span class="ow">in</span> <span class="n">morph</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">rus_run_word</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ENG:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">; score: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">word</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">score</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RUS:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">; score: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">word</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">cyr_repr</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">score</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;normal form: &quot;</span><span class="o">+</span><span class="n">form</span><span class="o">.</span><span class="n">normal_form</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>______________________________________________________________
+
+forms of ENG: will_run, RUS: побегу
+
+ENG:
+побегу : VERB,perf,intr sing,1per,futr,indc; score: 0.666666
+RUS:
+побегу : ГЛ,сов,неперех ед,1л,буд,изъяв; score: 0.666666
+normal form: побежать
+
+ENG:
+побегу : NOUN,inan,masc sing,datv; score: 0.333333
+RUS:
+побегу : СУЩ,неод,мр ед,дт; score: 0.333333
+normal form: побег
+
+______________________________________________________________
+
+forms of ENG: run, RUS: бегаю
+
+ENG:
+бегаю : VERB,impf,intr sing,1per,pres,indc; score: 1.0
+RUS:
+бегаю : ГЛ,несов,неперех ед,1л,наст,изъяв; score: 1.0
+normal form: бегать
+
+______________________________________________________________
+
+forms of ENG: running, RUS: бегу
+
+ENG:
+бегу : NOUN,inan,masc,Sgtm sing,loc2; score: 0.428571
+RUS:
+бегу : СУЩ,неод,мр,sg ед,пр2; score: 0.428571
+normal form: бег
+
+ENG:
+бегу : NOUN,inan,masc,Sgtm sing,datv; score: 0.285714
+RUS:
+бегу : СУЩ,неод,мр,sg ед,дт; score: 0.285714
+normal form: бег
+
+ENG:
+бегу : VERB,perf,intr sing,1per,futr,indc; score: 0.142857
+RUS:
+бегу : ГЛ,сов,неперех ед,1л,буд,изъяв; score: 0.142857
+normal form: бежать
+
+ENG:
+бегу : VERB,impf,intr sing,1per,pres,indc; score: 0.142857
+RUS:
+бегу : ГЛ,несов,неперех ед,1л,наст,изъяв; score: 0.142857
+normal form: бежать
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><h4>Lexeme is a unit of lexical meaning that underlies a set of words that are related through inflection. It is a basic abstract unit of meaning, a unit of morphological analysis in linguistics that roughly corresponds to a set of forms taken by a single root word (Wikipedia). Let's apply this for our analysis.<br><h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Score">Score</h2><p><br><h4>
+At present, P (tag | word) estimates based on OpenCorpora(open source project) are for about 20 thousand words (based on about 250 thousand observations). For those words for which there is no such assessment, the probability P (tag | word) is either considered uniform (for dictionary words) or estimated based on empirical rules (for non-dictionary words). Parses are sorted in descending order by score, therefore everywhere in the examples the first parsing option is taken from the possible ones:<br>
+For example : <br><h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">run_rus_word</span> <span class="o">=</span> <span class="n">morph</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;run&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lexeme">Lexeme</h2><p><br><h4>As we can see russian language can be complicated bacause we have 70 forms of a word 'run':<br><h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rus_run_lexeme</span> <span class="o">=</span> <span class="n">run_rus_word</span><span class="o">.</span><span class="n">lexeme</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">rus_run_lexeme</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>70</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><h4>Let's print all of them:<br></h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">rus_run_word</span> <span class="ow">in</span> <span class="n">rus_run_lexeme</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">rus_run_word</span><span class="o">.</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>бегать
+бегаю
+бегаем
+бегаешь
+бегаете
+бегает
+бегают
+бегал
+бегала
+бегало
+бегали
+бегай
+бегайте
+бегающий
+бегающего
+бегающему
+бегающего
+бегающий
+бегающим
+бегающем
+бегающая
+бегающей
+бегающей
+бегающую
+бегающей
+бегающею
+бегающей
+бегающее
+бегающего
+бегающему
+бегающее
+бегающим
+бегающем
+бегающие
+бегающих
+бегающим
+бегающих
+бегающие
+бегающими
+бегающих
+бегавший
+бегавшего
+бегавшему
+бегавшего
+бегавший
+бегавшим
+бегавшем
+бегавшая
+бегавшей
+бегавшей
+бегавшую
+бегавшей
+бегавшею
+бегавшей
+бегавшее
+бегавшего
+бегавшему
+бегавшее
+бегавшим
+бегавшем
+бегавшие
+бегавших
+бегавшим
+бегавших
+бегавшие
+бегавшими
+бегавших
+бегая
+бегав
+бегавши
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><h4>Russian Language has a different way how to say '4 years' and '5 years'.## Words after numbers
+Russian Language has a different way to say '4 years' and '5 years'.<br></h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="n">morph</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;год&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">year</span><span class="o">.</span><span class="n">make_agree_with_number</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">word</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;года&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">year</span><span class="o">.</span><span class="n">make_agree_with_number</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">word</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;годов&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><h4>This is actually wrong, it should be another word('лет') with 6 (bag of library). Let's try another word( a plate). <br></h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span> <span class="o">=</span> <span class="n">morph</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;тарелка&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span><span class="o">.</span><span class="n">make_agree_with_number</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">word</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;тарелка&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span><span class="o">.</span><span class="n">make_agree_with_number</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">word</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;тарелки&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span><span class="o">.</span><span class="n">make_agree_with_number</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">word</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;тарелок&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><h4>This works exactly as expected.<br></h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Change-form-of-a-word">Change form of a word</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Parse(word=&#39;тарелка&#39;, tag=OpencorporaTag(&#39;NOUN,inan,femn sing,nomn&#39;), normal_form=&#39;тарелка&#39;, score=1.0, methods_stack=((&lt;DictionaryAnalyzer&gt;, &#39;тарелка&#39;, 8, 0),))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span><span class="o">.</span><span class="n">inflect</span><span class="p">({</span><span class="s1">&#39;gent&#39;</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Parse(word=&#39;тарелки&#39;, tag=OpencorporaTag(&#39;NOUN,inan,femn sing,gent&#39;), normal_form=&#39;тарелка&#39;, score=1.0, methods_stack=((&lt;DictionaryAnalyzer&gt;, &#39;тарелки&#39;, 8, 1),))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span><span class="o">.</span><span class="n">inflect</span><span class="p">({</span><span class="s1">&#39;accs&#39;</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Parse(word=&#39;тарелку&#39;, tag=OpencorporaTag(&#39;NOUN,inan,femn sing,accs&#39;), normal_form=&#39;тарелка&#39;, score=1.0, methods_stack=((&lt;DictionaryAnalyzer&gt;, &#39;тарелку&#39;, 8, 3),))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span><span class="o">.</span><span class="n">inflect</span><span class="p">({</span><span class="s1">&#39;loct&#39;</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Parse(word=&#39;тарелке&#39;, tag=OpencorporaTag(&#39;NOUN,inan,femn sing,loct&#39;), normal_form=&#39;тарелка&#39;, score=1.0, methods_stack=((&lt;DictionaryAnalyzer&gt;, &#39;тарелке&#39;, 8, 6),))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Gender-of-a-word">Gender of a word</h2><p><br><h4>In russian language, a word has its gender. For example, a male cat is a different word from a female cat. Let's see the difference. <br></h4></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">male_cat</span> <span class="o">=</span> <span class="n">morph</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;кот&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">female_cat</span> <span class="o">=</span> <span class="n">morph</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;кошка&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">male_cat</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">gender</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;masc&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt"></div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">female_cat</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">gender</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt"></div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;femn&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+{% endblock %}
