@@ -9,7 +9,8 @@
 
       <div class="row">
 
-          <div class="card col-md-6 col-xl-4 ">
+
+          <div class="card card col-md-6 col-xl-4 ">
               <a href="{% url 'project' 'k_means' %}" class="links">
               <img src="../static/images/k_means.png" class="card-img-top" style="height:30%, width:20%">
               <div class="card-body">
@@ -20,7 +21,7 @@
             </a>
           </div>
 
-          <div class="col-md-6 col-xl-4">
+          <div class="card col-md-6 col-xl-4">
             <a href="{% url 'project' 'nlp_russian' %}" class="links">
               <img src="../static/images/nlp_russian.png" class="card-img-top" style="padding-bottom: 125px; padding-top:170px;"  >
               <div class="card-body  ">
@@ -32,7 +33,7 @@
               </a>
           </div>
 
-          <div class="col-md-6 col-xl-4">
+          <div class="card col-md-6 col-xl-4">
             <a href="{% url 'project' 'nlp_russian_2' %}" class="links">
               <img src="../static/images/nlp_russian_2.png" class="card-img-top" style="padding-bottom: 125px; padding-top:170px;"  >
               <div class="card-body  ">
@@ -44,11 +45,33 @@
               </a>
           </div>
 
-          <div class="card col-md-6 col-xl-4 ">
-              <a href="{% url 'project' 'affine_transformation' %}" class="links">
+          <div class="card col-md-6 col-xl-4">
+            <a href="{% url 'project' 'Neural_Net_part1' %}" class="links">
+              <img src="../static/images/nn1.png" class="card-img-top" style="padding-bottom: 125px; padding-top:30x;"  >
+              <div class="card-body  ">
+                <h5 class="card-title">Neural Net Part 1</h5>
+                <p class="card-text ">Using scikit-learn library to train the Neural Net with one hidden layer and plotting decision boundaries. Explaining the difference between the number of neurons used and the performance of the Neural Net. </p>
+                <p class="card-text"><small class="text-muted">Machine Learning</small></p>
+              </div>
+              </a>
+          </div>
 
-                <img src="../static/images/affine_transform_img.png" class="card-img-top" style="height:30%, width:20%;">
-                <div class="card-body">
+          <div class="card col-md-6 col-xl-4 ">
+            <a href="{% url 'project' 'Neural_Net_part2' %}" class="links">
+              <img src="../static/images/nn2.png" class="card-img-top" style="padding-bottom: 125px; padding-top:30px;"  >
+              <div class="card-body">
+                <h5 class="card-title">Neural Net Part 2</h5>
+                <p class="card-text "> Implementing Stochastic Gradient Descent and Batch Gradient descent to train the Neural Network. Explaining the difference between the learning algorithms. </p>
+                <p class="card-text"><small class="text-muted">Machine Learning</small></p>
+              </div>
+              </a>
+          </div>
+
+
+          <div class="card card col-md-6 col-xl-4 border-1">
+              <a href="{% url 'project' 'affine_transformation' %}" class="links">
+                <img src="../static/images/affine_transform_img.png" class="card-img-top" >
+                <div class="card-body ">
                   <h5 class="card-title">Affine Transformation</h5>
                   <p class="card-text">Affine Transformations are combinations of linear transformations and translations. In this type of transformation, parallel lines remain parallel and ratios are preserved. </p>
                   <p class="card-text"><small class="text-muted">Computer Vision</small></p>
@@ -56,7 +79,7 @@
               </a>
           </div>
 
-          <div class="card col-md-6 col-xl-4 ">
+          <div class="card card col-md-6 col-xl-4 ">
             <a href="{% url 'project' 'homography' %}" class="links">
             <img src="../static/images/homography_image.png" class="card-img-top" style="height:30%, width:20%; padding-top:23%" >
             <div class="card-body  ">
@@ -68,7 +91,7 @@
             </a>
           </div>
 
-          <div class="card col-md-6 col-xl-4 ">
+          <div class="card card col-md-6 col-xl-4 ">
             <a href="{% url 'project' 'KernelLinearRegression' %}" class="links">
             <img src="../static/images/kernel_img.png" class="card-img-top" style="height:30%, width:20%" >
             <div class="card-body  ">
@@ -82,7 +105,7 @@
 
 
 
-          <div class="card col-md-6 col-xl-4 ">
+          <div class="card card col-md-6 col-xl-4 ">
               <a href="{% url 'project' 'RegularizationCrossValidationandGradientDescent' %}" class="links">
               <img src="../static/images/k_fold.png" class="card-img-top" >
               <div class="card-body  ">
@@ -94,7 +117,7 @@
               </a>
           </div>
 
-          <div class="card col-md-6 col-xl-4 ">
+          <div class="card card col-md-6 col-xl-4 ">
               <a href="{% url 'project' 'CondosDataPart1' %}" class="links">
               <img src="../static/images/web_scraping.png" class="card-img-top" style="padding-top: 30px; padding-bottom:105px">
               <div class="card-body  ">
@@ -106,7 +129,7 @@
               </a>
           </div>
 
-          <div class="card col-md-6 col-xl-4 ">
+          <div class="card card col-md-6 col-xl-4 ">
               <a href="{% url 'project' 'CondosDataPart2' %}" class="links">
               <img src="../static/images/pandas.jpg" class="card-img-top" >
               <div class="card-body  ">
@@ -118,7 +141,7 @@
               </a>
           </div>
 
-          <div class="card col-md-6 col-xl-4 ">
+          <div class="card card col-md-6 col-xl-4 ">
               <a href="{% url 'project' 'computer_shop' %}" class="links">
               <img src="../static/images/computer_store.png" class="card-img-top" style="padding-bottom: 100px" >
               <div class="card-body  ">
@@ -131,7 +154,9 @@
           </div>
 
 
-          <div class="col-md-6 col-xl-4">
+
+
+          <div class="card col-md-6 col-xl-4">
               <br>
               <h1>More projects soon...</h1>
               <br>
